@@ -38,8 +38,19 @@ func InsertSort(data []int) {
 	}
 }
 
+func InsertSort_1(data []int) {
+	length := len(data)
+	for i := 1; i < length; i++ {
+		for j := i; j > 0; j-- {
+			if data[j] < data[j-1] {
+				data[j], data[j-1] = data[j-1], data[j]
+			}
+		}
+	}
+}
+
 func main() {
 	data := []int{7, 3, 19, 40, 4, 7, 1}
-	InsertSort(data)
+	InsertSort_1(data)
 	fmt.Printf("data: %v\n", data)
 }

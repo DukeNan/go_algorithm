@@ -40,10 +40,24 @@ func SelectSort(data []int) {
 	}
 
 }
+func SelectSort_1(data []int) {
+	length := len(data)
+	for i := 0; i < length; i++ {
+		minIndex := i
+		for j := i + 1; j < length; j++ {
+			if data[j] < data[minIndex] {
+				minIndex = j
+			}
+		}
+		if minIndex != i {
+			data[i], data[minIndex] = data[minIndex], data[i]
+		}
+	}
+}
 func main() {
 	data := []int{13, 65, 97, 76, 38, 27, 49}
 	// data := []int{20}
-	SelectSort(data)
+	SelectSort_1(data)
 	fmt.Printf("data: %v\n", data)
 
 }
